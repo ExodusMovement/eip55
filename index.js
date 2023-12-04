@@ -1,4 +1,4 @@
-var createKeccakHash = require('keccak')
+var createKeccakHash = require('@exodus/keccak')
 
 function encodeInternal (address, parsed, chainId) {
   checkChainId(chainId)

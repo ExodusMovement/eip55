@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "keccak": "^3.0.3"
+    "@exodus/keccak": "3.0.1-exodus.0"
   },
   "devDependencies": {
     "nyc": "^15.1.0",
