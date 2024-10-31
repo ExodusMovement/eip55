@@ -1,4 +1,4 @@
-var eip55 = require('../')
+var eip55
 var fixtures = require('./fixtures')
 var tape = require('tape')
 
@@ -29,7 +29,9 @@ function referenceImpl (address) {
   return ret
 }
 
-tape('verifies each address', function (t) {
+tape('verifies each address', async function (t) {
+  eip55 = await import('../index.js')
+
   var fail = 0
 
   fixtures.forEach(function (address) {

@@ -1,4 +1,4 @@
-var createKeccakHash = require('@exodus/keccak')
+import createKeccakHash from '@exodus/keccak'
 
 function encodeInternal (address, parsed, chainId) {
   checkChainId(chainId)
@@ -64,4 +64,4 @@ function getHex (data) {
   return isString(data) ? data.match(/^(?:0x)?([0-9a-fA-F]{40})$/) : null
 }
 
-module.exports = { encode, verify }
+export { encode, verify }
