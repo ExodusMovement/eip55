@@ -11,7 +11,7 @@ function malform (address) {
 }
 
 // from https://github.com/ethereum/EIPs/blob/f3a591f6718035ba358d6a479cadabe313f6ed36/EIPS/eip-55.md#implementation
-var createKeccakHash = require('@exodus/keccak')
+var createKeccakHash = require('keccak')
 var crypto = require('crypto')
 function referenceImpl (address) {
   address = address.toLowerCase().replace('0x', '')
