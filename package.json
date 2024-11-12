@@ -1,6 +1,6 @@
 {
   "name": "@exodus/eip55",
-  "version": "2.1.1-exodus.0",
+  "version": "2.1.1-exodus.1",
   "description": "A EIP55 compatible address encoding library",
   "main": "index.js",
   "types": "index.d.ts",
