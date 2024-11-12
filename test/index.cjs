@@ -11,11 +11,11 @@ function malform (address) {
 }
 
 // from https://github.com/ethereum/EIPs/blob/f3a591f6718035ba358d6a479cadabe313f6ed36/EIPS/eip-55.md#implementation
-var createKeccakHash = require('keccak')
+const { keccak_256: keccak256 } = require('@noble/hashes/sha3')
 var crypto = require('crypto')
 function referenceImpl (address) {
   address = address.toLowerCase().replace('0x', '')
-  var hash = createKeccakHash('keccak256').update(address).digest('hex')
+  var hash = Buffer.from(keccak256(address)).toString('hex')
   var ret = '0x'
 
   for (var i = 0; i < address.length; i++) {
@@ -30,7 +30,7 @@ function referenceImpl (address) {
 }
 
 tape('verifies each address', async function (t) {
-  eip55 = await import('../index.js')
+  eip55 = require('../index.js')
 
   var fail = 0
 

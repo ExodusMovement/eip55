@@ -1,4 +1,4 @@
-import { keccak256 } from '@exodus/crypto/keccak'
+const { keccak_256: keccak256 } = require('@noble/hashes/sha3')
 
 function encodeInternal (address, parsed, chainId) {
   checkChainId(chainId)
@@ -9,7 +9,7 @@ function encodeInternal (address, parsed, chainId) {
   var forHash = chainId !== undefined
     ? chainId.toString(10) + '0x' + addressHex
     : addressHex
-  var checksum = keccak256(forHash)
+  const checksum = keccak256(forHash)
 
   var ret = '0x'
   for (var i = 0; i < 20; ++i) {
@@ -62,4 +62,4 @@ function getHex (data) {
   return isString(data) ? data.match(/^(?:0x)?([0-9a-fA-F]{40})$/) : null
 }
 
-export { encode, verify }
+module.exports = { encode, verify }
